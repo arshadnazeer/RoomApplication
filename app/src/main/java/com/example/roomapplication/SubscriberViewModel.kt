@@ -1,5 +1,6 @@
 package com.example.roomapplication
 
+import androidx.databinding.Bindable
 import androidx.databinding.Observable
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
@@ -16,11 +17,15 @@ class SubscriberViewModel(private val repository: SubscriberRepository) : ViewMo
     val subscribers = repository.subscribers
 
 
+    @Bindable
     val inputName = MutableLiveData<String?>()
+    @Bindable
     val inputEmail = MutableLiveData<String?>()
 
     // changing button text dynamically
+    @Bindable
     val saveorupdatebutton = MutableLiveData<String>()
+    @Bindable
     val clearordeletebutton = MutableLiveData<String>()
 
     init {

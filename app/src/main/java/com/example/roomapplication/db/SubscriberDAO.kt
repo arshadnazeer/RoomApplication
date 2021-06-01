@@ -9,20 +9,17 @@ interface SubscriberDAO {
     // alll these queries are run on a backgroung thread by default by room
     // hence no need to write coroutines/rxjava/async for this
     @Insert
-    suspend fun intsertSubscriber(subscriber: Subscriber){
-    }
+    suspend fun intsertSubscriber(subscriber: Subscriber)
 
     @Update
-    suspend fun updateSubscriber(subscriber: Subscriber){
-    }
+    suspend fun updateSubscriber(subscriber: Subscriber)
 
     @Delete
-    suspend fun deleteSubscriber(subscriber: Subscriber){
-    }
+    suspend fun deleteSubscriber(subscriber: Subscriber)
+
 
     @Query("DELETE FROM subscriber_data_table")
-    suspend fun deleteAll(){
-    }
+    suspend fun deleteAll()
 
     // room by default return LiveData from the table
 
