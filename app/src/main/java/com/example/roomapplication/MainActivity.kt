@@ -8,6 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.roomapplication.databinding.ActivityMainBinding
+import com.example.roomapplication.db.Subscriber
 import com.example.roomapplication.db.SubscriberDatabase
 import com.example.roomapplication.db.SubscriberRepository
 
@@ -46,10 +47,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun displaySubscribersList(){
         subscriberViewModel.subscribers.observe(this, Observer {
-            Log.e("TAG",it.toString())
+            val subscribers: List<Subscriber> = it
+            for(subs in subscribers){
+                Log.e("TAG","\n ID: ${subs.id} \n Name : ${subs.name} \n Email: ${subs.email} \n")
+                dataBinding.subsRecyclerView.adapter = MyRecyclerViewAdapter(subscribers)
+
+            }
 //
 //            // setting the adapter by pasing list of subscribers
-//            dataBinding.subsRecyclerView.adapter = MyRecyclerViewAdapter(it)
         })
     }
 }
